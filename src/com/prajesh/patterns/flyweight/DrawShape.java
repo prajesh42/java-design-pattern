@@ -2,30 +2,26 @@ package com.prajesh.patterns.flyweight;
 
 public class DrawShape {
 
-	public void drawShape(int numberOfShapes) {
-		Shape[] shapes = new Shape[numberOfShapes + 1];
+	public static void drawShape(int numberOfShapes) {
 
+		FlyWeight flyWeight=null;
+		
 		for (int i = 1; i <= numberOfShapes; i++) {
+			Shape shape=null;
 			if (i % 2 == 0) {
-				shapes[i] = new Circle();
-				((Circle) shapes[i]).setRadius(i);
-				((Circle) shapes[i]).setBorderColor("Red");
-				((Circle) shapes[i]).setColor("Blue");
-				shapes[i].draw();
+				flyWeight=new FlyWeight();
+				shape=flyWeight.returnShape("circle");
+				shape.drawCircle(i,"Blue", "Red");
 			} else {
-				shapes[i] = new Rectangle();
-				((Rectangle) shapes[i]).setLength(i + i);
-				((Rectangle) shapes[i]).setBreadth(i);
-				((Rectangle) shapes[i]).setFillType("Green");
-				shapes[i].draw();
+				flyWeight=new FlyWeight();
+			    shape=flyWeight.returnShape("rectangle");
+			    shape.drawRectangle(i+i,i,"Green");
 			}
 		}
-		System.out.println();
 
 	}
 
 	public static void main(String[] args) {
-		DrawShape drawShape = new DrawShape();
-		drawShape.drawShape(5);
+		DrawShape.drawShape(5);
 	}
 }

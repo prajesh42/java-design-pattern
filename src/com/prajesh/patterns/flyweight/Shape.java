@@ -1,6 +1,12 @@
 package com.prajesh.patterns.flyweight;
 
-public interface Shape {
+public abstract class Shape {
 
-	 void draw();
+	 public void drawCircle(int radius, String color, String borderColor) {
+		 
+	 }
+	 
+	 public void drawRectangle(int length, int breadth, String fillType) {
+		 
+	 }
 }
