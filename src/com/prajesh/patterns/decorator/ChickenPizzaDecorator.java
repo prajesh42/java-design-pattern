@@ -1,16 +1,15 @@
 package com.prajesh.patterns.decorator;
 
-public class ChickenPizzaDecorator implements Pizza{
+public class ChickenPizzaDecorator extends PizzaDecorator{
 
-	Pizza pizza;
 	
 	public ChickenPizzaDecorator(Pizza pizza) {
-		this.pizza=pizza;
+		super(pizza);
 	}
-	
+
 	@Override
 	public void bake() {
-		pizza.bake();
+		super.bake();
 		System.out.println("Adding chicken topings");
 	}
 	

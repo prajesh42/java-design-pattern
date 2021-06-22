@@ -1,16 +1,15 @@
 package com.prajesh.patterns.decorator;
 
-public class CheesePizzaDecorator implements Pizza{
+public class CheesePizzaDecorator extends PizzaDecorator{
 
-	Pizza pizza;
 	
 	public CheesePizzaDecorator(Pizza pizza) {
-		this.pizza=pizza;
+		super(pizza);
 	}
-	
+
 	@Override
 	public void bake() {
-		pizza.bake();
+		super.bake();
 		System.out.println("Adding cheese topings");
 	}
 	
